@@ -548,17 +548,106 @@ html {
 }
 
 @media (max-width: 991px) {
+  label {
+    display: none;
+  }
+  .slide {
+    height: 100%;
+    width: 180px;
+    position: absolute;
+    background-color: #fff;
+    transition: 0.5s ease;
+    transform: translateX(-350px);
+    left: 10px;
+  }
+  h1 {
+    font-weight: 800;
+    text-align: center;
+    pointer-events: none;
+  }
+  ul li {
+    list-style: none;
+  }
+  ul li a {
+    color: #011a41;
+    font-weight: 500;
+    padding: 5px 0;
+    display: block;
+    text-transform: none;
+    transition: 0.2s ease-out;
+  }
+  ul li:hover a {
+    color: #fff;
+    background-color: #1D7E9D;
+  }
+  input {
+    display: none;
+    visibility: hidden;
+  }
+  .toggle {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 20px;
+    left: 30px;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .toggle .common {
+    position: absolute;
+    height: 2px;
+    width: 2px;
+    background-color: #1D7E9D;
+    border-radius: 50px;
+    transition: 0.3s ease;
+  }
+  .toggle .top_line {
+    top: 30%;
+    left: 50%;
+    transform: translate(50%, -50%);
+  }
+  .toggle .middle_line {
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, -50%);
+  }
+  .toggle .bottom_line {
+    top: 70%;
+    left: 50%;
+    transform: translate(50%, -50%);
+  }
+  input:checked ~ .toggle .top_line {
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+  }
+  input:checked ~ .toggle .button_line {
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+  }
+  input:checked ~ .toggle .middle_line {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  input:checked ~ .slide {
+    transform: translateX(0);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
   .head {
     background: #223A66;
-    height: 6vh;
-    display: none;
+    height: 5vh;
   }
   .info {
     justify-content: space-around;
     align-items: center;
     padding-top: 10px;
     color: white;
-    display: none;
   }
   .info p {
     font-weight: 700;
@@ -566,16 +655,16 @@ html {
   .nav {
     display: flex;
     background: white;
-    height: 12vh;
+    height: 8vh;
     padding-top: 20px;
     justify-content: center;
     align-items: center;
   }
   .nav ul {
     display: flex;
-    gap: 30px;
+    gap: 50px;
     justify-content: center;
-    padding-right: 200px;
+    padding-left: 200px;
   }
   .nav ul li {
     list-style: none;
@@ -583,6 +672,7 @@ html {
   .nav ul a {
     text-decoration: none;
     color: #223A66;
+    font-size: 20px;
   }
   .nav ul a:hover {
     color: #E13855;
@@ -590,6 +680,7 @@ html {
   .log {
     width: 100%;
     padding-left: 100px;
+    display: none;
   }
   .log img {
     width: 30%;
@@ -597,7 +688,7 @@ html {
   .home {
     background: url(images/bg/slider-bg-1.jpg);
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     position: relative;
   }
   .textBox {
@@ -605,7 +696,7 @@ html {
     align-items: center;
     position: absolute;
     line-height: 50px;
-    padding-top: 200px;
+    padding-top: 100px;
     padding-left: 100px;
     color: #223A66;
   }
@@ -617,7 +708,7 @@ html {
   }
   .textBox button {
     background: #E13855;
-    padding: 14px 20px;
+    padding: 12px 18px;
     border: none;
     border-radius: 20px;
     color: white;
@@ -627,22 +718,22 @@ html {
   }
   .services {
     position: relative;
-    height: 30vh;
+    height: 40vh;
   }
   .services .container {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 20px;
     margin-top: -100px;
   }
   .services .box1,
   .services .box2,
   .services .box3 {
     background: white;
-    width: 20%;
-    height: 40vh;
+    width: 30%;
+    height: 20vh;
     justify-content: center;
-    padding-top: 55px;
+    padding-top: 35px;
     color: #223A66;
     text-align: center;
     border-radius: 20px;
@@ -665,21 +756,21 @@ html {
   .images {
     margin-top: 80px;
     display: flex;
-    width: 100%;
+    width: 90%;
     gap: 10px;
-    padding-left: 200px;
+    padding-left: 60px;
   }
   .first {
     flex-wrap: wrap;
   }
   .img1 {
-    width: 100%;
+    width: 70%;
   }
   .img1 img {
     width: 100%;
   }
   .img2 {
-    width: 100%;
+    width: 70%;
     flex-direction: column;
   }
   .img2 img {
@@ -688,16 +779,17 @@ html {
   .one {
     width: 100%;
     padding-top: 50px;
+    display: none;
   }
   .one img {
-    width: 40%;
+    width: 55%;
   }
   .text {
     color: #223A66;
     justify-content: center;
     align-items: center;
     position: absolute;
-    padding-left: 800px;
+    padding-left: 420px;
     padding-top: 200px;
   }
   .text button {
@@ -709,10 +801,10 @@ html {
     margin-top: 20px;
   }
   .text h2 {
-    font-size: 35px;
+    font-size: 30px;
   }
   .text p {
-    margin-top: 15px;
+    margin-top: 20px;
   }
   .box {
     background: #223A66;
@@ -723,6 +815,7 @@ html {
     margin-left: 150px;
     margin-top: 75px;
     color: white;
+    display: none;
   }
   .box .headings {
     display: flex;
@@ -742,9 +835,9 @@ html {
     gap: 180px;
   }
   .award {
-    margin-top: 1200px;
+    margin-top: 560px;
     background: #F4F9FC;
-    height: 80vh;
+    height: 60vh;
   }
   .award h2 {
     text-align: center;
@@ -753,7 +846,7 @@ html {
     color: #223A66;
   }
   .wrapper {
-    padding-top: 100px;
+    padding-top: 80px;
     justify-content: center;
     text-align: center;
   }
@@ -764,14 +857,15 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
+    margin: 0 14px;
   }
   .cards1 .card1,
   .cards1 .card2,
   .cards1 .card3 {
     background: white;
     width: auto;
-    height: 20vh;
+    height: 16vh;
     padding: 12px 12px;
   }
   .cards1 .card1 h3,
@@ -788,7 +882,8 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
+    margin: 0 14px;
     padding-top: 40px;
     border-radius: 20px;
   }
@@ -797,7 +892,7 @@ html {
   .cards2 .card6 {
     background: white;
     width: auto;
-    height: 20vh;
+    height: 16vh;
     padding: 12px 12px;
   }
   .cards2 .card4 h3,
@@ -821,19 +916,20 @@ html {
   .img img {
     width: 80%;
     position: relative;
+    padding-left: 50px;
   }
   .boxInfo {
     background: #223A66;
     position: absolute;
-    width: 18%;
-    height: 12vh;
+    width: 25%;
+    height: 6vh;
     justify-content: center;
     text-align: center;
     margin-top: -130px;
     margin-left: 200px;
   }
   .boxInfo h4 {
-    font-size: 30px;
+    font-size: 26px;
     color: white;
     padding-top: 20px;
   }
@@ -859,6 +955,7 @@ html {
   .departments {
     padding-top: 50px;
     display: flex;
+    display: none;
   }
   .departments .dep {
     position: relative;
@@ -905,7 +1002,7 @@ html {
   }
   .served {
     background: #F4F9FC;
-    height: 100vh;
+    height: 60vh;
     margin-top: 50px;
   }
   .served h2 {
@@ -924,15 +1021,15 @@ html {
     display: flex;
     justify-content: center;
     margin-top: 70px;
-    gap: 15px;
+    gap: 22px;
   }
   .qoutes .qoute1,
   .qoutes .qoute2 {
     background: white;
     width: 40%;
-    height: 30vh;
+    height: 26vh;
     justify-content: center;
-    padding-top: 40px;
+    padding-top: 60px;
     line-height: 25px;
     border-radius: 20px;
     padding-left: 20px;
@@ -947,7 +1044,7 @@ html {
   }
   .partners {
     margin-top: 50px;
-    height: 70vh;
+    height: 30vh;
   }
   .partners h2 {
     font-size: 40px;
@@ -962,9 +1059,12 @@ html {
   }
   .logos {
     display: flex;
-    padding-top: 130px;
+    padding-top: 110px;
     justify-content: center;
     position: relative;
+  }
+  .logos .logo6 {
+    display: none;
   }
   .footer {
     height: auto;
@@ -1020,6 +1120,7 @@ html {
     display: flex;
     gap: 400px;
     color: #223A66;
+    display: none;
   }
   .last span {
     color: #2c2f35;
@@ -1056,10 +1157,9 @@ html {
 @media (max-width: 768px) {
   .head {
     background: #223A66;
-    height: 6vh;
+    height: 5vh;
   }
   .info {
-    display: flex;
     justify-content: space-around;
     align-items: center;
     padding-top: 10px;
@@ -1071,7 +1171,7 @@ html {
   .nav {
     display: flex;
     background: white;
-    height: 12vh;
+    height: 8vh;
     padding-top: 20px;
     justify-content: center;
     align-items: center;
@@ -1080,7 +1180,8 @@ html {
     display: flex;
     gap: 30px;
     justify-content: center;
-    padding-right: 200px;
+    text-align: center;
+    padding: 0;
   }
   .nav ul li {
     list-style: none;
@@ -1088,6 +1189,7 @@ html {
   .nav ul a {
     text-decoration: none;
     color: #223A66;
+    font-size: 20px;
   }
   .nav ul a:hover {
     color: #E13855;
@@ -1095,6 +1197,7 @@ html {
   .log {
     width: 100%;
     padding-left: 100px;
+    display: none;
   }
   .log img {
     width: 30%;
@@ -1102,7 +1205,7 @@ html {
   .home {
     background: url(images/bg/slider-bg-1.jpg);
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     position: relative;
   }
   .textBox {
@@ -1110,8 +1213,8 @@ html {
     align-items: center;
     position: absolute;
     line-height: 50px;
-    padding-top: 200px;
-    padding-left: 100px;
+    padding-top: 100px;
+    padding-left: 60px;
     color: #223A66;
   }
   .textBox h2 {
@@ -1122,7 +1225,7 @@ html {
   }
   .textBox button {
     background: #E13855;
-    padding: 14px 20px;
+    padding: 12px 18px;
     border: none;
     border-radius: 20px;
     color: white;
@@ -1132,26 +1235,29 @@ html {
   }
   .services {
     position: relative;
-    height: 30vh;
+    height: 60vh;
   }
   .services .container {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    margin-top: -100px;
+    gap: 20px;
+    margin-top: -40px;
   }
   .services .box1,
   .services .box2,
   .services .box3 {
     background: white;
-    width: 20%;
-    height: 40vh;
+    width: 40%;
+    height: 33vh;
     justify-content: center;
     padding-top: 55px;
     color: #223A66;
     text-align: center;
     border-radius: 20px;
     box-shadow: 2px 2px 2px;
+  }
+  .services .box3 {
+    display: none;
   }
   .services p {
     padding-top: 10px;
@@ -1170,21 +1276,21 @@ html {
   .images {
     margin-top: 80px;
     display: flex;
-    width: 100%;
+    width: 90%;
     gap: 10px;
-    padding-left: 200px;
+    padding-left: 60px;
   }
   .first {
     flex-wrap: wrap;
   }
   .img1 {
-    width: 100%;
+    width: 70%;
   }
   .img1 img {
     width: 100%;
   }
   .img2 {
-    width: 100%;
+    width: 70%;
     flex-direction: column;
   }
   .img2 img {
@@ -1193,16 +1299,17 @@ html {
   .one {
     width: 100%;
     padding-top: 50px;
+    display: none;
   }
   .one img {
-    width: 40%;
+    width: 55%;
   }
   .text {
     color: #223A66;
     justify-content: center;
     align-items: center;
     position: absolute;
-    padding-left: 800px;
+    padding-left: 400px;
     padding-top: 200px;
   }
   .text button {
@@ -1214,10 +1321,10 @@ html {
     margin-top: 20px;
   }
   .text h2 {
-    font-size: 35px;
+    font-size: 30px;
   }
   .text p {
-    margin-top: 15px;
+    margin-top: 20px;
   }
   .box {
     background: #223A66;
@@ -1228,6 +1335,7 @@ html {
     margin-left: 150px;
     margin-top: 75px;
     color: white;
+    display: none;
   }
   .box .headings {
     display: flex;
@@ -1247,9 +1355,9 @@ html {
     gap: 180px;
   }
   .award {
-    margin-top: 1200px;
+    margin-top: 560px;
     background: #F4F9FC;
-    height: 80vh;
+    height: 60vh;
   }
   .award h2 {
     text-align: center;
@@ -1258,25 +1366,26 @@ html {
     color: #223A66;
   }
   .wrapper {
-    padding-top: 100px;
+    padding-top: 80px;
     justify-content: center;
     text-align: center;
   }
   .wrapper p {
-    padding-top: 40px;
+    padding-top: 20px;
   }
   .cards1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
+    margin: 0 14px;
   }
   .cards1 .card1,
   .cards1 .card2,
   .cards1 .card3 {
     background: white;
     width: auto;
-    height: 20vh;
+    height: 16vh;
     padding: 12px 12px;
   }
   .cards1 .card1 h3,
@@ -1293,7 +1402,8 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
+    margin: 0 14px;
     padding-top: 40px;
     border-radius: 20px;
   }
@@ -1302,7 +1412,7 @@ html {
   .cards2 .card6 {
     background: white;
     width: auto;
-    height: 20vh;
+    height: 16vh;
     padding: 12px 12px;
   }
   .cards2 .card4 h3,
@@ -1326,19 +1436,20 @@ html {
   .img img {
     width: 80%;
     position: relative;
+    padding-left: 50px;
   }
   .boxInfo {
     background: #223A66;
     position: absolute;
-    width: 18%;
-    height: 12vh;
+    width: 25%;
+    height: 6vh;
     justify-content: center;
     text-align: center;
     margin-top: -130px;
     margin-left: 200px;
   }
   .boxInfo h4 {
-    font-size: 30px;
+    font-size: 26px;
     color: white;
     padding-top: 20px;
   }
@@ -1364,6 +1475,7 @@ html {
   .departments {
     padding-top: 50px;
     display: flex;
+    display: none;
   }
   .departments .dep {
     position: relative;
@@ -1410,7 +1522,7 @@ html {
   }
   .served {
     background: #F4F9FC;
-    height: 100vh;
+    height: 60vh;
     margin-top: 50px;
   }
   .served h2 {
@@ -1429,15 +1541,15 @@ html {
     display: flex;
     justify-content: center;
     margin-top: 70px;
-    gap: 15px;
+    gap: 4px;
   }
   .qoutes .qoute1,
   .qoutes .qoute2 {
     background: white;
     width: 40%;
-    height: 30vh;
+    height: 26vh;
     justify-content: center;
-    padding-top: 40px;
+    padding-top: 60px;
     line-height: 25px;
     border-radius: 20px;
     padding-left: 20px;
@@ -1452,7 +1564,7 @@ html {
   }
   .partners {
     margin-top: 50px;
-    height: 70vh;
+    height: 30vh;
   }
   .partners h2 {
     font-size: 40px;
@@ -1467,9 +1579,15 @@ html {
   }
   .logos {
     display: flex;
-    padding-top: 130px;
+    padding-top: 70px;
     justify-content: center;
     position: relative;
+  }
+  .logos .logo6 {
+    display: none;
+  }
+  .logos .logo5 {
+    display: none;
   }
   .footer {
     height: auto;
@@ -1486,12 +1604,11 @@ html {
   .touch {
     display: flex;
     justify-content: center;
-    padding-left: 60px;
     position: absolute;
-    gap: 80px;
+    gap: 30px;
     color: #223A66;
     line-height: 20px;
-    padding-top: 50px;
+    padding-top: 30px;
     border-bottom: 2px solid white;
   }
   .depart,
@@ -1503,6 +1620,7 @@ html {
     border-bottom: 3px solid #E13855;
     width: 20%;
     top: 2px;
+    font-size: 6px;
   }
   .depart p,
   .sup p {
@@ -1525,6 +1643,7 @@ html {
     display: flex;
     gap: 400px;
     color: #223A66;
+    display: none;
   }
   .last span {
     color: #2c2f35;
@@ -1558,13 +1677,107 @@ html {
     background: #223A66;
   }
 }
-@media (max-width: 414px) {
+@media (max-width: 600px) {
+  label {
+    display: block;
+  }
+  .slide {
+    height: 100%;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    z-index: 5;
+    position: absolute;
+    background-color: #fff;
+    transition: 0.5s ease;
+    transform: translateX(-105%);
+  }
+  h1 {
+    font-weight: 800;
+    text-align: center;
+    pointer-events: none;
+  }
+  ul li {
+    list-style: none;
+  }
+  ul li a {
+    color: #011a41;
+    font-weight: 500;
+    padding: 5px 0;
+    display: block;
+    text-transform: none;
+    transition: 0.2s ease-out;
+  }
+  ul li:hover a {
+    color: #fff;
+    background-color: #1D7E9D;
+  }
+  input {
+    display: none;
+    visibility: hidden;
+  }
+  .toggle {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 20px;
+    left: 30px;
+    z-index: 9;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .toggle .common {
+    position: absolute;
+    z-index: 9;
+    height: 2px;
+    width: 15px;
+    background-color: #1D7E9D;
+    border-radius: 50px;
+    transition: 0.3s ease;
+  }
+  .toggle .top_line {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .toggle .middle_line {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .toggle .bottom_line {
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  input:checked ~ .toggle .top_line {
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+  }
+  input:checked ~ .toggle .bottom_line {
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(-45deg);
+  }
+  input:checked ~ .toggle .middle_line {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  input:checked ~ .slide {
+    transform: translateX(0%);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
   .head {
     background: #223A66;
-    height: 6vh;
+    height: 5vh;
+    display: none;
   }
   .info {
-    display: flex;
     justify-content: space-around;
     align-items: center;
     padding-top: 10px;
@@ -1576,16 +1789,16 @@ html {
   .nav {
     display: flex;
     background: white;
-    height: 12vh;
+    height: 8vh;
     padding-top: 20px;
     justify-content: center;
     align-items: center;
+    display: none;
   }
   .nav ul {
     display: flex;
-    gap: 30px;
     justify-content: center;
-    padding-right: 200px;
+    text-align: center;
   }
   .nav ul li {
     list-style: none;
@@ -1593,13 +1806,14 @@ html {
   .nav ul a {
     text-decoration: none;
     color: #223A66;
+    font-size: 20px;
   }
   .nav ul a:hover {
     color: #E13855;
   }
   .log {
     width: 100%;
-    padding-left: 100px;
+    display: none;
   }
   .log img {
     width: 30%;
@@ -1607,16 +1821,14 @@ html {
   .home {
     background: url(images/bg/slider-bg-1.jpg);
     width: 100%;
-    height: 100vh;
+    height: 60vh;
     position: relative;
   }
   .textBox {
     justify-content: center;
-    align-items: center;
+    text-align: center;
     position: absolute;
-    line-height: 50px;
-    padding-top: 200px;
-    padding-left: 100px;
+    line-height: 55px;
     color: #223A66;
   }
   .textBox h2 {
@@ -1627,7 +1839,7 @@ html {
   }
   .textBox button {
     background: #E13855;
-    padding: 14px 20px;
+    padding: 12px 18px;
     border: none;
     border-radius: 20px;
     color: white;
@@ -1635,28 +1847,36 @@ html {
   .textBox button:hover {
     background: #223A66;
   }
+  .textBox p {
+    display: none;
+  }
   .services {
     position: relative;
-    height: 30vh;
+    height: 60vh;
   }
   .services .container {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    margin-top: -100px;
+    gap: 20px;
+    margin-top: -20px;
+    flex-direction: column;
+    align-items: center;
   }
   .services .box1,
   .services .box2,
   .services .box3 {
     background: white;
-    width: 20%;
-    height: 40vh;
+    width: 80%;
+    height: 33vh;
     justify-content: center;
     padding-top: 55px;
     color: #223A66;
-    text-align: center;
+    align-items: center;
     border-radius: 20px;
     box-shadow: 2px 2px 2px;
+  }
+  .services .box3 {
+    display: none;
   }
   .services p {
     padding-top: 10px;
@@ -1675,21 +1895,22 @@ html {
   .images {
     margin-top: 80px;
     display: flex;
-    width: 100%;
+    width: 90%;
     gap: 10px;
-    padding-left: 200px;
+    justify-content: center;
+    align-items: center;
   }
   .first {
     flex-wrap: wrap;
   }
   .img1 {
-    width: 100%;
+    width: 70%;
   }
   .img1 img {
     width: 100%;
   }
   .img2 {
-    width: 100%;
+    width: 70%;
     flex-direction: column;
   }
   .img2 img {
@@ -1698,17 +1919,19 @@ html {
   .one {
     width: 100%;
     padding-top: 50px;
+    display: none;
   }
   .one img {
-    width: 40%;
+    width: 55%;
   }
   .text {
     color: #223A66;
     justify-content: center;
     align-items: center;
     position: absolute;
-    padding-left: 800px;
+    padding-left: 400px;
     padding-top: 200px;
+    display: none;
   }
   .text button {
     background: #E13855;
@@ -1719,10 +1942,10 @@ html {
     margin-top: 20px;
   }
   .text h2 {
-    font-size: 35px;
+    font-size: 30px;
   }
   .text p {
-    margin-top: 15px;
+    margin-top: 20px;
   }
   .box {
     background: #223A66;
@@ -1733,6 +1956,7 @@ html {
     margin-left: 150px;
     margin-top: 75px;
     color: white;
+    display: none;
   }
   .box .headings {
     display: flex;
@@ -1752,36 +1976,38 @@ html {
     gap: 180px;
   }
   .award {
-    margin-top: 1200px;
+    margin-top: 560px;
     background: #F4F9FC;
     height: 80vh;
   }
   .award h2 {
     text-align: center;
     padding-top: 50px;
-    font-size: 35px;
+    font-size: 30px;
     color: #223A66;
   }
   .wrapper {
-    padding-top: 100px;
+    padding-top: 80px;
     justify-content: center;
     text-align: center;
   }
   .wrapper p {
-    padding-top: 40px;
+    padding-top: 20px;
   }
   .cards1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
+    margin: 0 14px;
+    flex-direction: column;
   }
   .cards1 .card1,
   .cards1 .card2,
   .cards1 .card3 {
     background: white;
     width: auto;
-    height: 20vh;
+    height: 16vh;
     padding: 12px 12px;
   }
   .cards1 .card1 h3,
@@ -1798,16 +2024,18 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
+    margin: 0 14px;
     padding-top: 40px;
     border-radius: 20px;
+    display: none;
   }
   .cards2 .card4,
   .cards2 .card5,
   .cards2 .card6 {
     background: white;
     width: auto;
-    height: 20vh;
+    height: 16vh;
     padding: 12px 12px;
   }
   .cards2 .card4 h3,
@@ -1823,27 +2051,30 @@ html {
   .book {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    text-align: center;
+    margin-top: -10px;
   }
   .img {
     width: 50;
+    display: none;
   }
   .img img {
     width: 80%;
     position: relative;
+    padding-left: 50px;
   }
   .boxInfo {
     background: #223A66;
     position: absolute;
-    width: 18%;
-    height: 12vh;
+    width: 25%;
+    height: 6vh;
     justify-content: center;
     text-align: center;
     margin-top: -130px;
     margin-left: 200px;
   }
   .boxInfo h4 {
-    font-size: 30px;
+    font-size: 26px;
     color: white;
     padding-top: 20px;
   }
@@ -1869,6 +2100,7 @@ html {
   .departments {
     padding-top: 50px;
     display: flex;
+    display: none;
   }
   .departments .dep {
     position: relative;
@@ -1915,34 +2147,36 @@ html {
   }
   .served {
     background: #F4F9FC;
-    height: 100vh;
+    height: 60vh;
     margin-top: 50px;
   }
   .served h2 {
     padding-top: 50px;
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     color: #223A66;
   }
   .served h6 {
-    padding-top: 30px;
+    padding-top: 20px;
     text-align: center;
-    font-size: 20px;
+    font-size: 12px;
     color: #223A66;
   }
   .qoutes {
     display: flex;
     justify-content: center;
     margin-top: 70px;
-    gap: 15px;
+    gap: 22px;
+    flex-direction: column;
+    align-items: center;
   }
   .qoutes .qoute1,
   .qoutes .qoute2 {
     background: white;
-    width: 40%;
-    height: 30vh;
+    width: 80%;
+    height: 26vh;
     justify-content: center;
-    padding-top: 40px;
+    padding-top: 28px;
     line-height: 25px;
     border-radius: 20px;
     padding-left: 20px;
@@ -1956,28 +2190,36 @@ html {
     color: #223A66;
   }
   .partners {
-    margin-top: 50px;
-    height: 70vh;
+    margin-top: 250px;
+    height: 80vh;
   }
   .partners h2 {
-    font-size: 40px;
+    font-size: 25px;
     text-align: center;
     color: #223A66;
   }
   .partners p {
-    padding-top: 30px;
+    padding-top: 18px;
     text-align: center;
-    font-size: 20px;
+    font-size: 14px;
     color: #223A66;
   }
   .logos {
     display: flex;
-    padding-top: 130px;
+    padding-top: 100px;
     justify-content: center;
     position: relative;
+    flex-direction: column;
+    align-items: center;
+  }
+  .logos .logos {
+    width: 100%;
+  }
+  .logos .logos img {
+    width: 100%;
   }
   .footer {
-    height: auto;
+    height: 85vh;
     background: #F4F9FC;
     justify-content: center;
     align-items: center;
@@ -1993,11 +2235,12 @@ html {
     justify-content: center;
     padding-left: 60px;
     position: absolute;
-    gap: 80px;
+    gap: 40px;
     color: #223A66;
     line-height: 20px;
-    padding-top: 50px;
+    padding-top: 30px;
     border-bottom: 2px solid white;
+    flex-direction: column;
   }
   .depart,
   .sup {
@@ -2008,6 +2251,7 @@ html {
     border-bottom: 3px solid #E13855;
     width: 20%;
     top: 2px;
+    font-size: 6px;
   }
   .depart p,
   .sup p {
@@ -2015,6 +2259,7 @@ html {
   }
   .getintouch {
     padding-top: 30px;
+    display: none;
   }
   .getintouch h3 {
     border-bottom: 3px solid #E13853;
@@ -2030,6 +2275,7 @@ html {
     display: flex;
     gap: 400px;
     color: #223A66;
+    display: none;
   }
   .last span {
     color: #2c2f35;
