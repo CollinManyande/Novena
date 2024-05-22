@@ -10,6 +10,10 @@ html {
   scroll-behavior: smooth;
 }
 
+label {
+  display: none;
+}
+
 .head {
   background: #223A66;
   height: 6vh;
